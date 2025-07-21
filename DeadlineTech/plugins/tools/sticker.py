@@ -3,7 +3,7 @@ import httpx
 import os
 from pyrogram import filters
 from config import BOT_USERNAME
-from VILLAIN_MUSIC import app
+from DeadlineTech import app
 from pyrogram import filters
 import pyrogram
 from uuid import uuid4
