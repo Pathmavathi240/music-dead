@@ -12,6 +12,8 @@ from DeadlineTech.utils.decorators.language import LanguageStart, languageCB
 from DeadlineTech.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
+from VILLAIN_MUSIC.utils.stuffs.buttons import BUTTONS
+from VILLAIN_MUSIC.utils.stuffs.helper import Helper
 
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
