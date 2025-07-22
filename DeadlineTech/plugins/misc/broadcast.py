@@ -4,17 +4,17 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 
-from VILLAIN_MUSIC import app
-from VILLAIN_MUSIC.misc import SUDOERS
-from VILLAIN_MUSIC.utils.database import (
+from DeadlineTech import app
+from DeadlineTech.misc import SUDOERS
+from DeadlineTech.utils.database import (
     get_active_chats,
     get_authuser_names,
     get_client,
     get_served_chats,
     get_served_users,
 )
-from VILLAIN_MUSIC.utils.decorators.language import language
-from VILLAIN_MUSIC.utils.formatters import alpha_to_int
+from DeadlineTech.utils.decorators.language import language
+from DeadlineTech.utils.formatters import alpha_to_int
 from config import adminlist
 
 IS_BROADCASTING = False
