@@ -65,22 +65,17 @@ HELP_8 = """
 /loop [1, 2, 3, ...] : ᴇɴᴀʙʟᴇs ᴛʜᴇ ʟᴏᴏᴘ ғᴏʀ ᴛʜᴇ ɢɪᴠᴇɴ ᴠᴀʟᴜᴇ.
 """
 
-
 HELP_10 = """
-<b><u>𝖯𝖨𝖭𝖦 & 𝖲𝖳𝖠𝖳𝖲</u></b> 📊
+<b><u>ᴘɪɴɢ & sᴛᴀᴛs :</b></u>
 
-📌 <b>Monitor the bot's performance and get quick access to system status.</b>
+/start : sᴛᴀʀᴛs ᴛʜᴇ ᴍᴜsɪᴄ ʙᴏᴛ.
+/help : ɢᴇᴛ ʜᴇʟᴩ ᴍᴇɴᴜ ᴡɪᴛʜ ᴇxᴩʟᴀɴᴀᴛɪᴏɴ ᴏғ ᴄᴏᴍᴍᴀɴᴅs.
 
-/start – Initiates the music bot and verifies if it's active in the chat.
+/ping : sʜᴏᴡs ᴛʜᴇ ᴩɪɴɢ ᴀɴᴅ sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
 
-/help – Opens the full help menu with detailed explanations of all commands.
-
-/ping – Displays the bot’s current ping and basic system information like CPU and memory usage.
-
-/stats – Shows complete system stats, including uptime, total served users, chats, and active streams.
-
-🧩 <i>Use these commands to ensure everything is running smoothly or to debug latency issues.</i>
+/stats : sʜᴏᴡs ᴛʜᴇ ᴏᴠᴇʀᴀʟʟ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
 """
+
 
 
 HELP_11 = """
