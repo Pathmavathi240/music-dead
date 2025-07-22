@@ -4,6 +4,7 @@ from typing import Union
 
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
+from pyrogram.enums import ParseMode
 
 from DeadlineTech import app
 from DeadlineTech.utils import help_pannel
