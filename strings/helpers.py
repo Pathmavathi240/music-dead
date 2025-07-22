@@ -21,26 +21,6 @@ HELP_2 = """
 🔹 <b>/authusers</b> – Show the list of currently authorized users in the group.
 """
 
-HELP_3 = """
-<b><u>𝖢𝖫𝖮𝖭𝖨𝖭𝖦 𝖠 𝖡𝖮𝖳</u></b> 🤖
-
-✨ <b>Create your own bot clone easily by following these steps:</b>
-
-① Open <b>@BotFather</b> on Telegram.  
-② Type <code>/newbot</code> and follow the prompts.  
-③ Choose a display name for your clone.  
-④ Pick a unique username (must end with <i>bot</i>).  
-⑤ Once done, @BotFather will give you an <b>API token</b>.  
-⑥ Send this token to <b>@HarryxRobot</b> in PM using the format below:  
-   <code>/clone yourbottoken</code>  
-   (❗ Do not include square brackets!)
-
-📌 <u>Example:</u>  
-<code>/clone 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11</code>
-
-🎧 <b>Official Demo Bot:</b> <a href="https://t.me/TuhiMusicBot">@TuhiMusicBot</a>
-"""
-
 HELP_4 = """
 <b><u>𝖢𝖧𝖠𝖳 𝖡𝖫𝖠𝖢𝖪𝖫𝖨𝖲𝖳</u></b> 🚫 [Sudo Users Only]
 
@@ -63,21 +43,6 @@ HELP_5 = """
 🔹 <b>/blockedusers</b> – Show the list of all blocked users.
 
 ⚠️ <i>Blocked users will be ignored completely by the bot.</i>
-"""
-
-HELP_6 = """
-<b><u>𝖢𝖧𝖠𝖭𝖭𝖤𝖫 𝖯𝖫𝖠𝖸</u></b> 📡
-
-🎙️ <b>Stream audio or video directly in your connected channel's video chat!</b>
-
-🔹 <b>/cplay</b> – Start streaming the requested <b>audio</b> track in the channel.  
-🔹 <b>/cvplay</b> – Start streaming the requested <b>video</b> track in the channel.  
-🔹 <b>/cplayforce</b> or <b>/cvplayforce</b> – Forcefully stop the current stream and play a new audio/video track.
-
-📡 <b>/channelplay [chat username or ID]</b> – Connect a channel to the group and control playback from the group itself.  
-🔄 <b>/channelplay disable</b> – Disconnect the linked channel.
-
-<i>➤ Make sure the bot has required permissions and is an admin in both the group 
 """
 
 
@@ -103,23 +68,6 @@ Use this to play the same track multiple times without re-queuing it manually.
 ◽ <b>/loop [1, 2, 3, ...]</b> – Set a custom number of times to loop the current stream.
 
 📝 <i>Helpful when you want to replay a specific song multiple times during a session.</i>
-"""
-
-
-HELP_9 = """
-<b><u>𝖬𝖠𝖨𝖭𝖳𝖤𝖭𝖠𝖭𝖢𝖤 𝖬𝖮𝖣𝖤</u></b> 🛠️ [Sudo Users Only]
-
-👨‍💻 <b>Essential tools for bot management and debugging.</b>
-
-🔹 <b>/logs</b> – Fetch the latest logs from your bot’s system for debugging or review.
-
-🔹 <b>/logger [enable/disable]</b> – Turn on or off activity logging. When enabled, the bot will keep a log of all events and user interactions.
-
-🔹 <b>/maintenance [enable/disable]</b> – Switch the bot to maintenance mode.  
-  • In this mode, the bot will stop responding to commands in user chats.  
-  • Useful when performing updates or backend fixes.
-
-📝 <i>Only authorized sudoers should use these powerful administrative controls.</i>
 """
 
 
