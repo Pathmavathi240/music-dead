@@ -103,6 +103,10 @@ async def helper_cb(client, CallbackQuery):
 async def on_back_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
+
+    language = await get_lang(CallbackQuery.message.chat.id)
+    _ = get_string(language)
+
     keyboard = help_pannel(_, True)
     if cb == "settings_back_helper":
         await CallbackQuery.edit_message_text(
