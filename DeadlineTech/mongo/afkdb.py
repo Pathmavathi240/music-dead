@@ -1,4 +1,4 @@
-from VILLAIN_MUSIC.utils.mongo import db
+from DeadlineTech.utils.mongo import db
 
 HEHE = "6815918609"
 
