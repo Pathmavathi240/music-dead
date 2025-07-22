@@ -34,25 +34,15 @@ def help_pannel(_, START: Union[bool, int] = None):
                     callback_data="help_callback hb2",
                 ),
                 InlineKeyboardButton(
-                    text=_["H_B_3"],
-                    callback_data="help_callback hb3",
-                ),
-            ],
-            [
-                InlineKeyboardButton(
                     text=_["H_B_4"],
                     callback_data="help_callback hb4",
                 ),
+            ],
+            [
                 InlineKeyboardButton(
                     text=_["H_B_5"],
                     callback_data="help_callback hb5",
                 ),
-                InlineKeyboardButton(
-                    text=_["H_B_6"],
-                    callback_data="help_callback hb6",
-                ),
-            ],
-            [
                 InlineKeyboardButton(
                     text=_["H_B_7"],
                     callback_data="help_callback hb7",
@@ -60,10 +50,6 @@ def help_pannel(_, START: Union[bool, int] = None):
                 InlineKeyboardButton(
                     text=_["H_B_8"],
                     callback_data="help_callback hb8",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_9"],
-                    callback_data="help_callback hb9",
                 ),
             ],
             [
