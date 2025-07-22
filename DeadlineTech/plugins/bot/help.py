@@ -118,7 +118,7 @@ async def on_back_button(client, CallbackQuery):
             _["help_1"].format(SUPPORT_CHAT), reply_markup=keyboard
         )
 
-@app.on_callback_query(filters.regex('mplus'))      
+@app.on_callback_query(filters.regex(r"^mplus\sHELP_"))      
 async def mb_plugin_button(client, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
