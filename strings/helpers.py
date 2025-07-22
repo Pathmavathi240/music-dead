@@ -76,47 +76,29 @@ HELP_10 = """
 /stats : sʜᴏᴡs ᴛʜᴇ ᴏᴠᴇʀᴀʟʟ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
 """
 
-
-
 HELP_11 = """
-<b><u>𝖯𝖫𝖠𝖸 𝖢𝖮𝖬𝖬𝖠𝖭𝖣𝖲</u></b> 🎶
+<u><b>ᴩʟᴀʏ ᴄᴏᴍᴍᴀɴᴅs :</b></u>
 
-🎥 <b>v</b> = Play in video mode  
-⚡ <b>force</b> = Force play (interrupts current stream)
+<b>v :</b> sᴛᴀɴᴅs ғᴏʀ ᴠɪᴅᴇᴏ ᴩʟᴀʏ.
+<b>force :</b> sᴛᴀɴᴅs ғᴏʀ ғᴏʀᴄᴇ ᴩʟᴀʏ.
 
-▶️ <b>/play</b> or <b>/vplay</b> – Starts streaming the requested track in voice or video chat.  
-  • <code>/vplay</code> will trigger video playback.
+/play ᴏʀ /vplay : sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛʀᴀᴄᴋ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ.
 
-⏩ <b>/playforce</b> or <b>/vplayforce</b> – Instantly stops the ongoing stream and plays the new requested track.  
-  • Useful when you want to override the current song.
-
-📝 <i>Use force play responsibly — it will disrupt what's currently playing.</i>
+/playforce ᴏʀ /vplayforce : sᴛᴏᴩs ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ ᴀɴᴅ sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛʀᴀᴄᴋ.
 """
-
 
 HELP_12 = """
-<b><u>𝖲𝖧𝖴𝖥𝖥𝖫𝖤 𝖰𝖴𝖤𝖴𝖤</u></b> 🔀
+<b><u>sʜᴜғғʟᴇ ᴏ̨ᴜᴇᴜᴇ :</b></u>
 
-🎲 <b>/shuffle</b> – Randomly reshuffles the current queue of tracks.  
-  • Great for mixing things up when you want a fresh order of playback.
-
-📜 <b>/queue</b> – Displays the current shuffled queue.  
-  • Shows the list of tracks in their new randomized order.
-
-✨ <i>Use shuffle to surprise your audience or break the monotony of the playlist!</i>
+/shuffle : sʜᴜғғʟᴇ's ᴛʜᴇ ᴏ̨ᴜᴇᴜᴇ.
+/queue : sʜᴏᴡs ᴛʜᴇ sʜᴜғғʟᴇᴅ ᴏ̨ᴜᴇᴜᴇ.
 """
 
-
 HELP_13 = """
-<b><u>𝖲𝖤𝖤𝖪 𝖢𝖮𝖬𝖬𝖠𝖭𝖣𝖲</u></b> ⏩⏪
+<b><u>sᴇᴇᴋ sᴛʀᴇᴀᴍ :</b></u>
 
-🎯 <b>/seek [seconds]</b> – Jumps forward in the currently playing stream by the specified number of seconds.  
-  • Example: <code>/seek 60</code> will jump forward 1 minute.
-
-🔙 <b>/seekback [seconds]</b> – Rewinds the stream by the given number of seconds.  
-  • Example: <code>/seekback 30</code> will rewind 30 seconds.
-
-⚠️ <i>Make sure the stream supports seeking (usually YouTube/live streams do).</i>
+/seek [ᴅᴜʀᴀᴛɪᴏɴ ɪɴ sᴇᴄᴏɴᴅs] : sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ.
+/seekback [ᴅᴜʀᴀᴛɪᴏɴ ɪɴ sᴇᴄᴏɴᴅs] : ʙᴀᴄᴋᴡᴀʀᴅ sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ.
 """
 
 
