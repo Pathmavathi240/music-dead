@@ -57,17 +57,12 @@ HELP_7 = """
 """
 
 HELP_8 = """
-<b><u>𝖫𝖮𝖮𝖯 𝖲𝖳𝖱𝖤𝖠𝖬</u></b> 🔁
+<b><u>ʟᴏᴏᴘ sᴛʀᴇᴀᴍ :</b></u>
 
-🔂 <b>Loop the currently playing stream automatically.</b>
+<b>sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ ɪɴ ʟᴏᴏᴘ</b>
 
-Use this to play the same track multiple times without re-queuing it manually.
-
-◽ <b>/loop enable</b> – Enable looping for the ongoing stream.  
-◽ <b>/loop disable</b> – Disable the loop and continue normally.  
-◽ <b>/loop [1, 2, 3, ...]</b> – Set a custom number of times to loop the current stream.
-
-📝 <i>Helpful when you want to replay a specific song multiple times during a session.</i>
+/loop [enable/disable] : ᴇɴᴀʙʟᴇs/ᴅɪsᴀʙʟᴇs ʟᴏᴏᴘ ғᴏʀ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ
+/loop [1, 2, 3, ...] : ᴇɴᴀʙʟᴇs ᴛʜᴇ ʟᴏᴏᴘ ғᴏʀ ᴛʜᴇ ɢɪᴠᴇɴ ᴠᴀʟᴜᴇ.
 """
 
 
