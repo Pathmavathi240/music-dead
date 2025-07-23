@@ -95,12 +95,6 @@ async def start_pm(client, message: Message, _):
         await asyncio.sleep(1.7)
         await loading.delete()
 
-        anim = await message.reply_video(
-            video="assets/Startvideo.mp4",
-            caption="✨🎵 Lights & Music Magic Show ✨🎶",
-        )
-        await asyncio.sleep(3.5)
-        await anim.delete()
 
     # 🌀 Spinner Emoji Animation
         spinner_emojis = ["🌀", "✨", "💫", "⚡", "🎵", "🎶"]
