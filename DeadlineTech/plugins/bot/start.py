@@ -87,44 +87,34 @@ async def start_pm(client, message: Message, _):
                 )
     else:
     # 🎬 Fancy Animated Welcome Effect with Emoji Spinner
-        loading = await message.reply_text("🔄 Initializing MusicSyco Bot... | 🔧 Tuning audio engine... 🔁 | ✨ Loading modules... ⏳")
-        await asyncio.sleep(1)
+        loading = await message.reply_text("🔄 Bot ஐ துவக்குகிறது...")
+        await asyncio.sleep(1.2)
 
-        await loading.edit_text(
-            "📡 Connecting to VC servers... 🌐\n"
-            "இசை இயந்திரம் செயல்படுகிறது...\n"
-            "✅ Almost Ready... ⚙️\n"
-        )
-        await asyncio.sleep(1)
+        await loading.edit_text("✨ தொகுதிகளை ஏற்றுகிறது... ⏳")
+        await asyncio.sleep(1.2)
 
-        await loading.edit_text("🌀")
+        await loading.edit_text("🔧 ஒலி பொறியை சரிசெய்கிறது... 🔁")
+        await asyncio.sleep(1.2)
+
+        await loading.edit_text("📡 VC சேவையகத்துடன் இணைகிறது... 🌐")
+        await asyncio.sleep(1.2)
+
+        await loading.edit_text("✅ அருகில்தான் தயாராக இருக்கிறது... ⚙️")
+        await asyncio.sleep(1.2)
+
+        await loading.edit_text("🎶 இசை இயந்திரம் செயல்படுகிறது...")
         await asyncio.sleep(1.5)
 
-        await loading.delete()
+    # Emoji Spinner 🌀 Magic!
+        for spin in ["🌀", "✨", "🌟", "💫", "⚡", "🎵", "🎶"]:
+            await loading.edit_text(spin)
+            await asyncio.sleep(0.4)
 
-        msg = await message.reply_text("🔄 Initializing MusicSyco Bot...")
-        await asyncio.sleep(1)
-        await msg.delete()
-
-        msg = await message.reply_text("✨ Loading modules... ⏳")
-        await asyncio.sleep(1)
-        await msg.delete()
-
-        msg = await message.reply_text("🔧 Tuning audio engine... 🔁")
-        await asyncio.sleep(1)
-        await msg.delete()
-
-        msg = await message.reply_text("📡 Connecting to VC servers... 🌐")
-        await asyncio.sleep(1)
-        await msg.delete()
-
-        msg = await message.reply_text("✅ Almost Ready... ⚙️\n\n🎶 இசை இயந்திரம் செயல்படுகிறது...")
+        await loading.edit_text("💫 இசைக்கு தயாராக உள்ளது! 🎶")
         await asyncio.sleep(1.8)
-        await msg.delete()
 
-        msg = await message.reply_text("💫 Ready to play music! 🎶")
-        await asyncio.sleep(1.5)
-        await msg.delete()
+    # ✨ Magical Delete
+        await loading.delete()
 
         out = private_panel(_)
         await message.reply_photo(
