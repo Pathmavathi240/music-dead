@@ -47,13 +47,13 @@ sᴛᴀʀᴛs ɪɢɴᴏʀɪɴɢ ᴛʜᴇ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴜsᴇʀ, 
 
 
 HELP_7 = """
-<b><u>𝖠𝖢𝖳𝖨𝖵𝖤 𝖢𝖠𝖫𝖫𝖲</u></b> [Sudo Users Only]
+<b><u>𝖠𝖢𝖳𝖨𝖵𝖤 𝖢𝖠𝖫𝖫𝖲:</b></u> [Sᴜᴅᴏ Usᴇʀs Oɴʟʏ]
 
-🎧 <b>Monitor all active voice and video streams across the bot's network.</b>
+🎧 <ʙ>Mᴏɴɪᴛᴏʀ ᴀʟʟ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴀɴᴅ ᴠɪᴅᴇᴏ sᴛʀᴇᴀᴍs ᴀᴄʀᴏss ᴛʜᴇ ʙᴏᴛ's ɴᴇᴛᴡᴏʀᴋ.
 
-🔹 <b>/activecalls</b> or <b>/acalls</b> – Shows a complete list of ongoing voice/video calls across all groups where the bot is active.
+🔹 <ʙ>/ᴀᴄᴛɪᴠᴇᴄᴀʟʟs ᴏʀ <ʙ>/ᴀᴄᴀʟʟs – Sʜᴏᴡs ᴀ ᴄᴏᴍᴘʟᴇᴛᴇ ʟɪsᴛ ᴏғ ᴏɴɢᴏɪɴɢ ᴠᴏɪᴄᴇ/ᴠɪᴅᴇᴏ ᴄᴀʟʟs ᴀᴄʀᴏss ᴀʟʟ ɢʀᴏᴜᴘs ᴡʜᴇʀᴇ ᴛʜᴇ ʙᴏᴛ ɪs ᴀᴄᴛɪᴠᴇ.
 
-💠 <i>This command helps you keep track of live streams handled by the bot in real-time.</i>
+💠 <ɪ>Tʜɪs ᴄᴏᴍᴍᴀɴᴅ ʜᴇʟᴘs ʏᴏᴜ ᴋᴇᴇᴘ ᴛʀᴀᴄᴋ ᴏғ ʟɪᴠᴇ sᴛʀᴇᴀᴍs ʜᴀɴᴅʟᴇᴅ ʙʏ ᴛʜᴇ ʙᴏᴛ ɪɴ ʀᴇᴀʟ-ᴛɪᴍᴇ.
 """
 
 HELP_8 = """
@@ -119,7 +119,7 @@ HELP_14 = """
  
 
 HELP_15 = """
-<ʙ><ᴜ>𝖲𝖯𝖤𝖤𝖣 𝖢𝖮𝖬𝖬𝖠𝖭𝖣𝖲 ⚡ [Aᴅᴍɪɴs Oɴʟʏ]
+<b><u>Sᴘᴇᴇᴅ ᴄᴏᴍᴍᴀɴᴅs:</b></u> ⚡ [Aᴅᴍɪɴs Oɴʟʏ]
 
 🎧 <ʙ>/sᴘᴇᴇᴅ ᴏʀ <ʙ>/ᴘʟᴀʏʙᴀᴄᴋ – AᴅJᴜsᴛ ᴛʜᴇ ᴘʟᴀʏʙᴀᴄᴋ sᴘᴇᴇᴅ ᴏғ ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ ɪɴ ɢʀᴏᴜᴘ ᴄʜᴀᴛs.
 
