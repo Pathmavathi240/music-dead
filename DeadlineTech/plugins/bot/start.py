@@ -96,7 +96,7 @@ async def start_pm(client, message: Message, _):
         await loading.delete()
 
         anim = await message.reply_video(
-            video="assets/экспортировать-06.mp4",
+            video="assets/Startvideo.mp4",
             caption="✨🎵 Lights & Music Magic Show ✨🎶",
         )
         await asyncio.sleep(3.5)
