@@ -107,6 +107,30 @@ async def start_pm(client, message: Message, _):
 
         await loading.delete()
 
+        msg = await message.reply_text("🔄 Initializing MusicSyco Bot...")
+        await asyncio.sleep(1)
+        await msg.delete()
+
+        msg = await message.reply_text("✨ Loading modules... ⏳")
+        await asyncio.sleep(1)
+        await msg.delete()
+
+        msg = await message.reply_text("🔧 Tuning audio engine... 🔁")
+        await asyncio.sleep(1)
+        await msg.delete()
+
+        msg = await message.reply_text("📡 Connecting to VC servers... 🌐")
+        await asyncio.sleep(1)
+        await msg.delete()
+
+        msg = await message.reply_text("✅ Almost Ready... ⚙️\n\n🎶 இசை இயந்திரம் செயல்படுகிறது...")
+        await asyncio.sleep(1.8)
+        await msg.delete()
+
+        msg = await message.reply_text("💫 Ready to play music! 🎶")
+        await asyncio.sleep(1.5)
+        await msg.delete()
+
         out = private_panel(_)
         await message.reply_photo(
             photo=config.START_IMG_URL,
