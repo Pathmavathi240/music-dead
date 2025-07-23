@@ -87,20 +87,15 @@ async def start_pm(client, message: Message, _):
                 )
     else:
     # 🎬 Fancy Animated Welcome Effect with Emoji Spinner
-        loading = await message.reply_text("🔄 Initializing MusicSyco Bot...")
+        loading = await message.reply_text("🔄 Initializing MusicSyco Bot... | 🔧 Tuning audio engine... 🔁 | ✨ Loading modules... ⏳")
         await asyncio.sleep(1)
 
-        await loading.edit_text("✨ Loading modules... ⏳")
+        await loading.edit_text(
+            "📡 Connecting to VC servers... 🌐\n"
+            "இசை இயந்திரம் செயல்படுகிறது...\n"
+            "✅ Almost Ready... ⚙️\n"
+        )
         await asyncio.sleep(1)
-
-        await loading.edit_text("🔧 Tuning audio engine... 🔁")
-        await asyncio.sleep(1)
-
-        await loading.edit_text("📡 Connecting to VC servers... 🌐")
-        await asyncio.sleep(1)
-
-        await loading.edit_text("✅ Almost Ready... ⚙️\n\n🎶 இசை இயந்திரம் செயல்படுகிறது...")
-        await asyncio.sleep(1.8)
 
         await loading.edit_text("💫 Ready to play music! 🎶")
         await asyncio.sleep(1.5)
