@@ -1,6 +1,7 @@
 # Powered By Team DeadlineTech
 
 import time
+import asyncio
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
@@ -85,6 +86,10 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
+        loading = await message.reply_text("🔄 𝐋𝐨𝐚𝐝𝐢𝐧𝐠...")
+        await asyncio.sleep(1.5)
+        await loading.delete()
+
         out = private_panel(_)
         await message.reply_photo(
             photo=config.START_IMG_URL,
