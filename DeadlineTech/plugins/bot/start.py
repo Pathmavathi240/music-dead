@@ -90,9 +90,13 @@ async def start_pm(client, message: Message, _):
         await asyncio.sleep(1.2)
         await loading.delete()
 
+        loading = await message.reply_text("🔄 enna pandra machi vaanga enjoy...")
+        await asyncio.sleep(1.4)
+        await loading.delete()
+
     # 👋 Greeting Message
         loading = await message.reply_text("👋 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்...")
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(1.7)
         await loading.delete()
 
     # 🌀 Spinner Emoji Animation
