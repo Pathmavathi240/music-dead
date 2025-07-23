@@ -86,8 +86,25 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
-        loading = await message.reply_text("🔄 𝐋𝐨𝐚𝐝𝐢𝐧𝐠...")
+    # 🎬 Fancy Animated Welcome Effect with Emoji Spinner
+        loading = await message.reply_text("🔄 Initializing MusicSyco Bot...")
+        await asyncio.sleep(1)
+
+        await loading.edit_text("✨ Loading modules... ⏳")
+        await asyncio.sleep(1)
+
+        await loading.edit_text("🔧 Tuning audio engine... 🔁")
+        await asyncio.sleep(1)
+
+        await loading.edit_text("📡 Connecting to VC servers... 🌐")
+        await asyncio.sleep(1)
+
+        await loading.edit_text("✅ Almost Ready... ⚙️\n\n🎶 இசை இயந்திரம் செயல்படுகிறது...")
+        await asyncio.sleep(1.8)
+
+        await loading.edit_text("💫 Ready to play music! 🎶")
         await asyncio.sleep(1.5)
+
         await loading.delete()
 
         out = private_panel(_)
