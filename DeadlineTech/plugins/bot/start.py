@@ -90,10 +90,6 @@ async def start_pm(client, message: Message, _):
         await asyncio.sleep(1.2)
         await loading.delete()
 
-        loading = await message.reply_text("🔄 enna pandra machi vaanga enjoy...")
-        await asyncio.sleep(1.4)
-        await loading.delete()
-
     # 👋 Greeting Message
         loading = await message.reply_text("👋 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்...")
         await asyncio.sleep(1.7)
@@ -105,13 +101,7 @@ async def start_pm(client, message: Message, _):
             loading = await message.reply_text(emoji)
             await asyncio.sleep(0.4)
             await loading.delete()
-
-    # 🎇 Music + Light Burst Ending Effect
-        final_emojis = ["🎵💥", "🎶✨", "🎵⚡", "💫🎶", "🎇🎵", "🔊🎶"]
-        for emoji in final_emojis:
-            loading = await message.reply_text(emoji)
-            await asyncio.sleep(0.45)
-            await loading.delete()
+            
 
         out = private_panel(_)
         await message.reply_photo(
