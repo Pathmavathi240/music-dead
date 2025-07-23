@@ -4,8 +4,8 @@ from pyrogram import Client, filters, enums
 class BUTTONS(object):
     MBUTTON = [
         [
-            InlineKeyboardButton("• ғᴏɴᴛ •", callback_data="mplus HELP_Font"),
-            InlineKeyboardButton("• ᴛ-ɢʀᴀᴘʜ •", callback_data="mplus HELP_TG"),
+            InlineKeyboardButton(" ғᴏɴᴛ ", callback_data="mplus HELP_Font"),
+            InlineKeyboardButton(" ᴛ-ɢʀᴀᴘʜ ", callback_data="mplus HELP_TG"),
             
         ],
         [
