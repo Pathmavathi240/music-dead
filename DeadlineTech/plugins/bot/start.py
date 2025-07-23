@@ -86,35 +86,28 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
-    # 🎬 Fancy Animated Welcome Effect with Emoji Spinner
         loading = await message.reply_text("🔄 Bot ஐ துவக்குகிறது...")
         await asyncio.sleep(1.2)
-
-        await loading.edit_text("✨ தொகுதிகளை ஏற்றுகிறது... ⏳")
-        await asyncio.sleep(1.2)
-
-        await loading.edit_text("🔧 ஒலி பொறியை சரிசெய்கிறது... 🔁")
-        await asyncio.sleep(1.2)
-
-        await loading.edit_text("📡 VC சேவையகத்துடன் இணைகிறது... 🌐")
-        await asyncio.sleep(1.2)
-
-        await loading.edit_text("✅ அருகில்தான் தயாராக இருக்கிறது... ⚙️")
-        await asyncio.sleep(1.2)
-
-        await loading.edit_text("🎶 இசை இயந்திரம் செயல்படுகிறது...")
-        await asyncio.sleep(1.5)
-
-    # Emoji Spinner 🌀 Magic!
-        for spin in ["🌀", "✨", "🌟", "💫", "⚡", "🎵", "🎶"]:
-            await loading.edit_text(spin)
-            await asyncio.sleep(0.4)
-
-        await loading.edit_text("💫 இசைக்கு தயாராக உள்ளது! 🎶")
-        await asyncio.sleep(1.8)
-
-    # ✨ Magical Delete
         await loading.delete()
+
+    # 👋 Greeting Message
+        loading = await message.reply_text("👋 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்...")
+        await asyncio.sleep(1.5)
+        await loading.delete()
+
+    # 🌀 Spinner Emoji Animation
+        spinner_emojis = ["🌀", "✨", "💫", "⚡", "🎵", "🎶"]
+        for emoji in spinner_emojis:
+            loading = await message.reply_text(emoji)
+            await asyncio.sleep(0.4)
+            await loading.delete()
+
+    # 🎇 Music + Light Burst Ending Effect
+        final_emojis = ["🎵💥", "🎶✨", "🎵⚡", "💫🎶", "🎇🎵", "🔊🎶"]
+        for emoji in final_emojis:
+            loading = await message.reply_text(emoji)
+            await asyncio.sleep(0.45)
+            await loading.delete()
 
         out = private_panel(_)
         await message.reply_photo(
