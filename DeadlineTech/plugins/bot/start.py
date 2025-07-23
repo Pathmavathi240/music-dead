@@ -97,7 +97,7 @@ async def start_pm(client, message: Message, _):
         )
         await asyncio.sleep(1)
 
-        await loading.edit_text("💫 Ready to play music! 🎶")
+        await loading.edit_text("🌀")
         await asyncio.sleep(1.5)
 
         await loading.delete()
