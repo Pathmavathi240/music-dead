@@ -100,8 +100,8 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_7, reply_markup=keyboard)
     elif cb == "hb8":
         await CallbackQuery.edit_message_text(helpers.HELP_8, reply_markup=keyboard)
-    elif cb == "hb9":
-        await CallbackQuery.edit_message_text(helpers.HELP_9, reply_markup=keyboard)
+    elif cb == "hb15":
+        await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
     elif cb == "hb10":
         await CallbackQuery.edit_message_text(helpers.HELP_10, reply_markup=keyboard)
     elif cb == "hb11":
@@ -112,16 +112,7 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_13, reply_markup=keyboard)
     elif cb == "hb14":
         await CallbackQuery.edit_message_text(helpers.HELP_14, reply_markup=keyboard)
-    elif cb == "hb15":
-        await CallbackQuery.edit_message_text(helpers.HELP_15, reply_markup=keyboard)
-    elif cb == "hb16":
-        await CallbackQuery.edit_message_text(helpers.HELP_16, reply_markup=keyboard)
-    elif cb == "hb17":
-        await CallbackQuery.edit_message_text(helpers.HELP_17, reply_markup=keyboard)
-    elif cb == "hb18":
-        await CallbackQuery.edit_message_text(helpers.HELP_18, reply_markup=keyboard)
-    elif cb == "hb19":
-        await CallbackQuery.edit_message_text(helpers.HELP_19, reply_markup=keyboard)
+    
         
 
 
