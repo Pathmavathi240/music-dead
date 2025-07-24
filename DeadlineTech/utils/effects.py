@@ -6,7 +6,7 @@ effects_list = {}
 
 # Effect 1: Typing One by One
 async def effect_typing(client, message: Message, welcome_text: str):
-    typing = await message.reply_text("")
+    typing = await message.reply_text("🎵 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்...")
     for char in welcome_text:
         await typing.edit_text(typing.text + char)
         await asyncio.sleep(0.08)
