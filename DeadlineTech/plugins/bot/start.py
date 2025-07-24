@@ -1,6 +1,7 @@
 # Powered By Team DeadlineTech
 
 import time
+import random
 import asyncio
 
 from pyrogram import filters
@@ -89,7 +90,8 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         welcome_text = "🎵 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்..."
-        effect = get_effect(1)
+        import random
+effect = get_effect(random.randint(1, 9))
         await effect(client, message, welcome_text)
         await asyncio.sleep(1)
         
