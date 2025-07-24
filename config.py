@@ -28,7 +28,6 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 
 # Get this value from @Harry_RoxBot on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", 6848223695))
-SUDO_USERS = [int(os.getenv("OWNER_ID"))]
 
 START_STICKER_ID = getenv("START_STICKER_ID", "https://files.catbox.moe/nr3dvm.mp4")
 
