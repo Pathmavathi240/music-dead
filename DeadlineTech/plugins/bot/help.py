@@ -7,7 +7,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.enums import ParseMode
 
 from DeadlineTech import app
-from DeadlineTech.utils import help_pannel
+from DeadlineTech.utils import first_page, second_page
 from DeadlineTech.utils.database import get_lang
 from DeadlineTech.utils.decorators.language import LanguageStart, languageCB
 from DeadlineTech.utils.inline.help import help_back_markup, private_help_panel
