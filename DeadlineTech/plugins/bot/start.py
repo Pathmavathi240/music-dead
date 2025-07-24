@@ -22,7 +22,7 @@ from DeadlineTech.utils.database import (
 )
 from DeadlineTech.utils.decorators.language import LanguageStart
 from DeadlineTech.utils.formatters import get_readable_time
-from DeadlineTech.utils.inline import help_pannel, private_panel, start_panel
+from DeadlineTech.utils.inline import first_page, private_panel, start_panel
 from config import BANNED_USERS, START_IMG_URL, START_STICKER_ID
 from strings import get_string
 
