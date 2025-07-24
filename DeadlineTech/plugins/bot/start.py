@@ -3,7 +3,6 @@
 import time 
 import asyncio
 import random
-import get_effect
 
 from random import choice
 from pyrogram import filters
