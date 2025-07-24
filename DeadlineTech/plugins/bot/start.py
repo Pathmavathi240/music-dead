@@ -23,7 +23,7 @@ from DeadlineTech.utils.database import (
 from DeadlineTech.utils.decorators.language import LanguageStart
 from DeadlineTech.utils.formatters import get_readable_time
 from DeadlineTech.utils.inline import help_pannel, private_panel, start_panel
-from config import BANNED_USERS
+from config import BANNED_USERS, START_IMG_URL, START_STICKER_ID
 from strings import get_string
 
 
@@ -104,7 +104,7 @@ async def start_pm(client, message: Message, _):
             await loading.delete()
 
         loading = await message.reply_sticker(
-                      sticker=config.START_STICKER_ID,
+                     sticker=config.START_STICKER_ID,
         )
         await asyncio.sleep(2)
         await loading.delete()
