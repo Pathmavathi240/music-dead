@@ -11,6 +11,7 @@ from youtubesearchpython.__future__ import VideosSearch
 import config
 from DeadlineTech import app
 from DeadlineTech.misc import _boot_
+from DeadlineTech.utils.effects import get_effect
 from DeadlineTech.plugins.sudo.sudoers import sudoers_list
 from DeadlineTech.utils import bot_sys_stats
 from DeadlineTech.utils.database import (
