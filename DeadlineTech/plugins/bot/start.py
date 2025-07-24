@@ -12,6 +12,7 @@ import config
 from DeadlineTech import app
 from DeadlineTech.misc import _boot_
 from DeadlineTech.plugins.sudo.sudoers import sudoers_list
+from DeadlineTech.utils import bot_sys_stats
 from DeadlineTech.utils.database import (
     add_served_chat,
     add_served_user,
