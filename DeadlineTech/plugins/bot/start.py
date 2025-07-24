@@ -1,9 +1,9 @@
 # Powered By Team DeadlineTech
 
-import time
-import random
+import time 
 import asyncio
 
+from random import choice
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
