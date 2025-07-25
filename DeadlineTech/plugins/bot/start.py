@@ -101,8 +101,8 @@ async def start_pm(client, message: Message, _):
         loading = await message.reply_sticker(
                      sticker=config.START_STICKER_ID,
         )
-        await asyncio.sleep(2)
-        await loading.delete()
+        await asyncio.sleep(2.5)
+        await loading.delete(1)
             
 
         out = private_panel(_)
