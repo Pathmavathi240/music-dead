@@ -1,6 +1,5 @@
 import glob
 from os.path import dirname, isfile
-from . import tools
 
 
 def __list_all_modules():
