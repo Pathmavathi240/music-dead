@@ -1,5 +1,5 @@
 import glob
-from os.path import dirname, isfile, join
+from os.path import dirname, isfile
 
 
 def __list_all_modules():
