@@ -73,7 +73,9 @@ async def init():
 
     
     for all_module in ALL_MODULES:
-        importlib.import_module(f"DeadlineTech.plugins.{all_module}")
+    if all_module.strip() == "":
+        continue
+    importlib.import_module(f"DeadlineTech.plugins.{all_module}")
     LOGGER("DeadlineTech.plugins").info("Successfully Imported Modules...")
     await userbot.start()
     await Anony.start()
