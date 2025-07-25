@@ -1,24 +1,22 @@
 from pyrogram import filters
 from DeadlineTech import app
-from pyrogram import filters
-
-@app.on_message(filters.command("biolink") & filters.group)
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
 from config import OWNER_ID
 import re
 
+# ⚙️ Variables
 BIO_PROTECT_ENABLED = {}
 USER_WARNINGS = {}
 
-# Toggle bio protection
-@Client.on_message(filters.command("biolink") & filters.group)
+# 🔘 Enable / Disable Command
+@app.on_message(filters.command("biolink") & filters.group)
 async def biolink_toggle(client, message: Message):
     if message.from_user.id != OWNER_ID:
-        return await message.reply_text("❌ இந்த கட்டளை மட்டுமே OWNER மட்டுமே பயன்படுத்த முடியும்.")
+        return await message.reply_text("❌ இந்த கட்டளை Owner மட்டுமே பயன்படுத்த முடியும்.")
 
     if len(message.command) < 2:
-        return await message.reply_text("✅ Usage: `/biolink on` அல்லது `/biolink off`")
+        return await message.reply_text("✅ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
 
     cmd = message.command[1].lower()
     chat_id = message.chat.id
@@ -32,8 +30,8 @@ async def biolink_toggle(client, message: Message):
     else:
         await message.reply_text("ℹ️ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
 
-# Main bio link checker
-@Client.on_message(filters.text & filters.group)
+# 🔎 Main Message Handler to Check Bio Links
+@app.on_message(filters.text & filters.group)
 async def check_bio_links(client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
@@ -80,14 +78,14 @@ async def check_bio_links(client, message: Message):
             except Exception as e:
                 await message.reply_text(f"❌ Ban செய்ய முடியவில்லை: {e}")
 
-# Check warn count manually
-@Client.on_message(filters.command("warns") & filters.group)
+# 🔍 Check warning count manually
+@app.on_message(filters.command("warns") & filters.group)
 async def check_warn_count(client, message: Message):
     if message.from_user.id != OWNER_ID:
         return await message.reply_text("❌ இந்த கட்டளை Owner மட்டுமே பயன்படுத்த முடியும்.")
 
     if len(message.command) < 2:
-        return await message.reply_text("ℹ️ Usage: `/warns <user_id>`")
+        return await message.reply_text("ℹ️ பயன்பாடு: `/warns <user_id>`")
 
     try:
         user_id = int(message.command[1])
