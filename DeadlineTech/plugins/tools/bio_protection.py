@@ -14,27 +14,14 @@ USER_WARNINGS = {}
 # Track who added the bot
 BOT_ADDED_BY = {}
 
-# Toggle bio protection ON/OFF
+# Toggle bio protection ON/OFF (OWNER ONLY)
 @app.on_message(filters.command("biolink") & filters.group)
 async def biolink_toggle(client, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
 
-    # Allow only owner, admin or user who added the bot
-    if user_id == OWNER_ID:
-        is_allowed = True
-    else:
-        try:
-            member = await client.get_chat_member(chat_id, user_id)
-            is_allowed = (
-                member.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]
-                or BOT_ADDED_BY.get(chat_id) == user_id
-            )
-        except:
-            is_allowed = False
-
-    if not is_allowed:
-        return await message.reply_text("❌ இந்த கட்டளை Owner, Admin, அல்லது Bot-ஐ சேர்த்தவர் மட்டுமே பயன்படுத்தலாம்.")
+    if user_id != OWNER_ID:
+        return await message.reply_text("❌ இந்த கட்டளை Owner மட்டுமே பயன்படுத்த முடியும்.")
 
     if len(message.command) < 2:
         return await message.reply_text("ℹ️ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
@@ -49,16 +36,16 @@ async def biolink_toggle(client, message: Message):
     else:
         await message.reply_text("ℹ️ `/biolink on` அல்லது `/biolink off` பயன்படுத்தவும்.")
 
-# Track who added the bot to the group
+# Track who added the bot
 @app.on_message(filters.new_chat_members)
 async def track_bot_adder(client, message: Message):
     for member in message.new_chat_members:
         if member.id == (await app.get_me()).id:
             BOT_ADDED_BY[message.chat.id] = message.from_user.id
 
-# Bio Link Protection - Detect links in bio
+# Detect bio link when user joins
 @app.on_chat_member_updated()
-async def on_user_join(client, chat_member: ChatMemberUpdated):
+async def bio_link_checker(client, chat_member: ChatMemberUpdated):
     chat_id = chat_member.chat.id
     user = chat_member.new_chat_member.user
     status = chat_member.new_chat_member.status
@@ -69,12 +56,12 @@ async def on_user_join(client, chat_member: ChatMemberUpdated):
     if not BIO_PROTECT_ENABLED.get(chat_id, False):
         return
 
-    if user.id == OWNER_ID or user.is_bot:
+    if user.is_bot or user.id == OWNER_ID:
         return
 
     try:
-        chat_member_info = await client.get_chat_member(chat_id, user.id)
-        if chat_member_info.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+        member = await client.get_chat_member(chat_id, user.id)
+        if member.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
             return
     except:
         return
@@ -85,7 +72,7 @@ async def on_user_join(client, chat_member: ChatMemberUpdated):
     except:
         return
 
-    # Detect links in bio
+    # Check for links in bio
     if re.search(r"(https?://|t\.me/|telegram\.me/|instagram|youtube|onlyfans|porn|www\.)", bio, re.IGNORECASE):
         key = f"{chat_id}:{user.id}"
         warn_count = USER_WARNINGS.get(key, 0)
@@ -109,19 +96,18 @@ async def on_user_join(client, chat_member: ChatMemberUpdated):
             except Exception as e:
                 await client.send_message(chat_id, f"❌ Ban செய்ய முடியவில்லை: {e}")
 
-# Check user warning count
+# Check warning count
 @app.on_message(filters.command("warns") & filters.group)
-async def check_warn_count(client, message: Message):
+async def check_warns(client, message: Message):
     if message.from_user.id != OWNER_ID:
         return await message.reply_text("❌ இந்த கட்டளை Owner மட்டுமே பயன்படுத்த முடியும்.")
-
+    
     if len(message.command) < 2:
         return await message.reply_text("ℹ️ பயன்பாடு: `/warns <user_id>`")
 
     try:
         user_id = int(message.command[1])
-        chat_id = message.chat.id
-        key = f"{chat_id}:{user_id}"
+        key = f"{message.chat.id}:{user_id}"
         count = USER_WARNINGS.get(key, 0)
         await message.reply_text(f"🔎 User `{user_id}` has {count}/1 warning.")
     except Exception as e:
