@@ -5,12 +5,12 @@ from pyrogram.enums import ChatMemberStatus
 from config import OWNER_ID
 import re
 
-# ⚙️ In-Memory Flags
+# ⚙️ Memory flags
 BIO_PROTECT_ENABLED = {}
 USER_WARNINGS = {}
-BOT_ADDED_BY = {}  # stores who added the bot to each group
+BOT_ADDED_BY = {}
 
-# 🚀 Store who added the bot to group
+# 🚀 Track who added the bot to the group
 @app.on_message(filters.new_chat_members)
 async def track_bot_adder(client, message: Message):
     for member in message.new_chat_members:
@@ -23,20 +23,24 @@ async def biolink_toggle(client, message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
 
-    try:
-        member = await client.get_chat_member(chat_id, user_id)
-        is_admin = member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]
-    except:
-        is_admin = False
+    # OWNER always allowed
+    if user_id == OWNER_ID:
+        is_allowed = True
+    else:
+        try:
+            member = await client.get_chat_member(chat_id, user_id)
+            is_admin = member.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]
+            is_allowed = is_admin or BOT_ADDED_BY.get(chat_id) == user_id
+        except:
+            is_allowed = False
 
-    if user_id != OWNER_ID and not is_admin and BOT_ADDED_BY.get(chat_id) != user_id:
+    if not is_allowed:
         return await message.reply_text("❌ இந்த கட்டளை Owner, Admin, அல்லது Bot-ஐ சேர்த்தவர் மட்டுமே பயன்படுத்தலாம்.")
 
     if len(message.command) < 2:
         return await message.reply_text("ℹ️ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
 
     cmd = message.command[1].lower()
-
     if cmd == "on":
         BIO_PROTECT_ENABLED[chat_id] = True
         await message.reply_text("✅ Bio link பாதுகாப்பு **ஓன்** செய்யப்பட்டது.")
@@ -46,18 +50,16 @@ async def biolink_toggle(client, message: Message):
     else:
         await message.reply_text("ℹ️ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
 
-# 🔍 Main Checker
-@app.on_message(filters.text & filters.group & ~filters.edited_messages)
+# 🔍 Main Bio checker
+@app.on_message(filters.text & filters.group & ~filters.edited)
 async def check_bio_links(client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
 
     if not user or user.is_bot:
         return
-
     if not BIO_PROTECT_ENABLED.get(chat_id, False):
         return
-
     if user.id == OWNER_ID:
         return
 
@@ -74,7 +76,8 @@ async def check_bio_links(client, message: Message):
     except:
         return
 
-    if re.search(r"(https?://|http://|t\.me/|telegram\.me/|www\.)", bio, re.IGNORECASE):
+    # Check for links in bio
+    if re.search(r"(https?://|t\.me/|telegram\.me/|www\.)", bio, re.IGNORECASE):
         key = f"{chat_id}:{user.id}"
         warn_count = USER_WARNINGS.get(key, 0)
 
@@ -95,7 +98,7 @@ async def check_bio_links(client, message: Message):
             except Exception as e:
                 await message.reply_text(f"❌ Ban செய்ய முடியவில்லை: {e}")
 
-# ℹ️ Warning count checker (only owner)
+# ℹ️ Warning count check (Owner only)
 @app.on_message(filters.command("warns") & filters.group)
 async def check_warn_count(client, message: Message):
     if message.from_user.id != OWNER_ID:
