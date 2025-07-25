@@ -51,7 +51,7 @@ async def biolink_toggle(client, message: Message):
         await message.reply_text("ℹ️ பயன்பாடு: `/biolink on` அல்லது `/biolink off`")
 
 # 🔍 Main Bio checker
-@app.on_message(filters.text & filters.group & ~filters.edited)
+@app.on_message(filters.text & filters.group)
 async def check_bio_links(client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
