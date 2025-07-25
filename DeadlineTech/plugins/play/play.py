@@ -2,6 +2,7 @@
 
 import random
 import string
+import asyncio
 
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
@@ -25,6 +26,38 @@ from DeadlineTech.utils.inline import (
 from DeadlineTech.utils.logger import play_logs
 from DeadlineTech.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
+
+EMOJI = [
+    "💞",
+    "🔎",
+    "🔍",
+    "🧪",
+    "💣",
+    "⚡️",
+    "🔥",
+    "🕺",
+    "🎩",
+    "🌈",
+    "🍷",
+    "🥂",
+    "🍾",
+    "🥃",
+    "🥤",
+    "🍽",
+    "🍭",
+    "🚗",
+    "🚕",
+    "🚓",
+    "🚑",
+    "🚀",
+    "💎",
+    "🔮",
+    "🪄",
+    "💌",
+    "⁉️",
+    "💤",
+    "🧨"
+]
 
 
 @app.on_message(
