@@ -90,11 +90,6 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
     else:
-        welcome_text = "🎵 வணக்கம்! என் இசை Bot இல் உங்களை வரவேற்கிறேன்..."
-        import random
-        effect = get_effect(1)
-        await effect(client, message, welcome_text)
-        await asyncio.sleep(1)
         
     # 🌀 Spinner Emoji Animation
         spinner_emojis = ["🌀", "✨", "💫", "⚡", "🎵", "🎶"]
