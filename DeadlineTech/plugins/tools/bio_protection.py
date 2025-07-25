@@ -1,4 +1,8 @@
-from pyrogram import Client, filters
+from pyrogram import filters
+from DeadlineTech import app
+from pyrogram import filters
+
+@app.on_message(filters.command("biolink") & filters.group)
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
 from config import OWNER_ID
