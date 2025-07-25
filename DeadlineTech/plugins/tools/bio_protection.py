@@ -1,5 +1,5 @@
 from pyrogram import filters
-from pyrogram.types import Message, ChatMemberUpdated
+from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
 from DeadlineTech import app
 from config import OWNER_ID
@@ -10,9 +10,6 @@ BIO_PROTECT_ENABLED = {}
 
 # User warnings
 USER_WARNINGS = {}
-
-# Track who added the bot
-BOT_ADDED_BY = {}
 
 # Toggle bio protection ON/OFF (OWNER ONLY)
 @app.on_message(filters.command("biolink") & filters.group)
@@ -36,65 +33,56 @@ async def biolink_toggle(client, message: Message):
     else:
         await message.reply_text("ℹ️ `/biolink on` அல்லது `/biolink off` பயன்படுத்தவும்.")
 
-# Track who added the bot
+# Detect bio link when new user joins
 @app.on_message(filters.new_chat_members)
-async def track_bot_adder(client, message: Message):
-    for member in message.new_chat_members:
-        if member.id == (await app.get_me()).id:
-            BOT_ADDED_BY[message.chat.id] = message.from_user.id
-
-# Detect bio link when user joins
-@app.on_chat_member_updated()
-async def bio_link_checker(client, chat_member: ChatMemberUpdated):
-    chat_id = chat_member.chat.id
-    user = chat_member.new_chat_member.user
-    status = chat_member.new_chat_member.status
-
-    if status != ChatMemberStatus.MEMBER:
-        return
+async def new_member_bio_check(client, message: Message):
+    chat_id = message.chat.id
 
     if not BIO_PROTECT_ENABLED.get(chat_id, False):
         return
 
-    if user.is_bot or user.id == OWNER_ID:
-        return
+    for user in message.new_chat_members:
+        if user.is_bot or user.id == OWNER_ID:
+            continue
 
-    try:
-        member = await client.get_chat_member(chat_id, user.id)
-        if member.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
-            return
-    except:
-        return
+        try:
+            # Skip if user is admin
+            member = await client.get_chat_member(chat_id, user.id)
+            if member.status in [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]:
+                continue
+        except:
+            continue
 
-    try:
-        user_info = await client.get_users(user.id)
-        bio = user_info.bio or ""
-    except:
-        return
+        try:
+            user_info = await client.get_users(user.id)
+            bio = user_info.bio or ""
+        except:
+            continue
 
-    # Check for links in bio
-    if re.search(r"(https?://|t\.me/|telegram\.me/|instagram|youtube|onlyfans|porn|www\.)", bio, re.IGNORECASE):
-        key = f"{chat_id}:{user.id}"
-        warn_count = USER_WARNINGS.get(key, 0)
+        # Debug print (optional)
+        print(f"👤 {user.first_name}'s bio: {bio}")
 
-        if warn_count == 0:
-            USER_WARNINGS[key] = 1
-            await client.send_message(
-                chat_id,
-                f"🚨 {user.mention} உங்கள் Bio-வில் link உள்ளது!\n"
-                f"⚠️ இது **முதல்** warning. மீண்டும் Bio-வில் link இருந்தால் **தானாக ban** செய்யப்படும்!"
-            )
-        else:
-            try:
-                await client.ban_chat_member(chat_id, user.id)
-                USER_WARNINGS.pop(key, None)
-                await client.send_message(
-                    chat_id,
-                    f"🚫 {user.mention} Bio-வில் மீண்டும் link கண்டறியப்பட்டது.\n"
-                    f"🔨 **User has been banned automatically!**"
+        # Check for links in bio
+        if re.search(r"(https?://|t\.me|telegram\.me|instagram|youtube|onlyfans|porn|www\.)", bio, re.IGNORECASE):
+            key = f"{chat_id}:{user.id}"
+            warn_count = USER_WARNINGS.get(key, 0)
+
+            if warn_count == 0:
+                USER_WARNINGS[key] = 1
+                await message.reply_text(
+                    f"🚨 {user.mention} உங்கள் Bio-வில் link உள்ளது!\n"
+                    f"⚠️ இது **முதல்** warning. மீண்டும் Bio-வில் link இருந்தால் **தானாக ban** செய்யப்படும்!"
                 )
-            except Exception as e:
-                await client.send_message(chat_id, f"❌ Ban செய்ய முடியவில்லை: {e}")
+            else:
+                try:
+                    await client.ban_chat_member(chat_id, user.id)
+                    USER_WARNINGS.pop(key, None)
+                    await message.reply_text(
+                        f"🚫 {user.mention} Bio-வில் மீண்டும் link கண்டறியப்பட்டது.\n"
+                        f"🔨 **User has been banned automatically!**"
+                    )
+                except Exception as e:
+                    await message.reply_text(f"❌ Ban செய்ய முடியவில்லை: {e}")
 
 # Check warning count
 @app.on_message(filters.command("warns") & filters.group)
