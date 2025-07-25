@@ -51,10 +51,20 @@ MIN_FILE_SIZE = 51200
 
 def extract_video_id(link: str) -> str:
     patterns = [
+    # Embed, v/, watch?v= and watch?abc&v=
         r'youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=)([0-9A-Za-z_-]{11})',
+
+    # Shortened youtu.be links
         r'youtu\.be\/([0-9A-Za-z_-]{11})',
+
+    # Playlist with video ID
         r'youtube\.com\/(?:playlist\?list=[^&]+&v=|v\/)([0-9A-Za-z_-]{11})',
-        r'youtube\.com\/(?:.*\?v=|.*\/)([0-9A-Za-z_-]{11})'
+
+    # Catch-all fallback
+        r'youtube\.com\/(?:.*\?v=|.*\/)([0-9A-Za-z_-]{11})',
+
+    # Shorts link
+        r'youtube\.com\/shorts\/([0-9A-Za-z_-]{11})',
     ]
 
     for pattern in patterns:
