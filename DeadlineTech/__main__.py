@@ -13,14 +13,13 @@ from DeadlineTech.core.call import Anony
 from DeadlineTech.misc import sudo
 from DeadlineTech.plugins import ALL_MODULES
 from DeadlineTech.utils.database import get_banned_users, get_gbanned
-from DeadlineTech.utils.crash_reporter import setup_global_exception_handler  # ✅ Import crash handler
+from DeadlineTech.utils.crash_reporter import setup_global_exception_handler
 from config import BANNED_USERS
 
 async def init():
     # ✅ Enable global crash handler
     setup_global_exception_handler()
 
-  
     if (
         not config.STRING1
         and not config.STRING2
@@ -30,6 +29,7 @@ async def init():
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
+
     await sudo()
     try:
         users = await get_gbanned()
@@ -40,63 +40,66 @@ async def init():
             BANNED_USERS.add(user_id)
     except:
         pass
+
     await app.start()
 
     await app.set_bot_commands([
         BotCommand("start", "Sᴛᴀʀᴛ's Tʜᴇ Bᴏᴛ"),
-        BotCommand("clone", "start your own bot now"), 
+        BotCommand("clone", "Start your own bot now"),
         BotCommand("ping", "Cʜᴇᴄᴋ ɪғ ʙᴏᴛ ɪs ᴀʟɪᴠᴇ"),
         BotCommand("help", "Gᴇᴛ Cᴏᴍᴍᴀɴᴅs Lɪsᴛ"),
-        BotCommand("music", "download the songs 🎵"), 
+        BotCommand("music", "Download the songs 🎵"),
         BotCommand("play", "Pʟᴀʏ Mᴜsɪᴄ ɪɴ Vᴄ"),
-        BotCommand("vplay", "starts Streaming the requested Video Song"), 
-        BotCommand("playforce", "forces to play your requested song"), 
-        BotCommand("vplayforce", "forces to play your requested Video song"), 
-        BotCommand("pause", "pause the current playing stream"), 
-        BotCommand("resume", "resume the paused stream"), 
-        BotCommand("skip", "skip the current playing stream"), 
-        BotCommand("end", "end the current stream"), 
-        BotCommand("player", "get a interactive player panel"), 
-        BotCommand("queue", "shows the queued tracks list"), 
-        BotCommand("auth", "add a user to auth list"), 
-        BotCommand("unauth", "remove a user from the auth list"), 
-        BotCommand("authusers", "shows the list of the auth users"), 
-        BotCommand("cplay", "starts streaming the requested audio on channel"), 
-        BotCommand("cvplay", "Starts Streaming the video track on channel"), 
-        BotCommand("channelplay", "connect channel to a group and start streaming"), 
-        BotCommand("shuffle", "shuffle's the queue"), 
-        BotCommand("seek", "seek the stream to the given duration"), 
-        BotCommand("seekback", "backward seek the stream"), 
-        BotCommand("speed", "for adjusting the audio playback speed"), 
-        BotCommand("loop", "enables the loop for the given value")
+        BotCommand("vplay", "Start streaming requested Video Song"),
+        BotCommand("playforce", "Force play your requested song"),
+        BotCommand("vplayforce", "Force play your requested Video song"),
+        BotCommand("pause", "Pause the current playing stream"),
+        BotCommand("resume", "Resume the paused stream"),
+        BotCommand("skip", "Skip the current playing stream"),
+        BotCommand("end", "End the current stream"),
+        BotCommand("player", "Get an interactive player panel"),
+        BotCommand("queue", "Show the queued tracks list"),
+        BotCommand("auth", "Add a user to auth list"),
+        BotCommand("unauth", "Remove a user from the auth list"),
+        BotCommand("authusers", "Show list of auth users"),
+        BotCommand("cplay", "Start streaming audio on channel"),
+        BotCommand("cvplay", "Start streaming video track on channel"),
+        BotCommand("channelplay", "Connect channel to group and stream"),
+        BotCommand("shuffle", "Shuffle the queue"),
+        BotCommand("seek", "Seek stream to given duration"),
+        BotCommand("seekback", "Seek backward in stream"),
+        BotCommand("speed", "Adjust audio playback speed"),
+        BotCommand("loop", "Enable loop for a value"),
+        BotCommand("bio", "Enable/Disable Bio Link Protection")  # ✅ Added command
     ])
 
-    
+    # ✅ FIXED plugin import loop (required to load all plugins)
     for all_module in ALL_MODULES:
         if all_module.strip() == "":
             continue
-            
-    importlib.import_module(f"DeadlineTech.plugins.{all_module}")
-    LOGGER("DeadlineTech.plugins").info("Successfully Imported Modules...")
+        importlib.import_module(f"DeadlineTech.plugins.{all_module}")
+
+    LOGGER("DeadlineTech.plugins").info("✅ Successfully Imported All Plugins")
+
     await userbot.start()
     await Anony.start()
     try:
         await Anony.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
     except NoActiveGroupCall:
         LOGGER("DeadlineTech").error(
-            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
+            "Please turn on the videochat of your log group/channel.\n\nStopping Bot..."
         )
         exit()
     except:
         pass
+
     await Anony.decorators()
-    LOGGER("DeadlineTech").info(
-        "DeadlineTech Music Bot started successfully"
-    )
+    LOGGER("DeadlineTech").info("✅ DeadlineTech Music Bot Started Successfully")
     await idle()
+
     await app.stop()
     await userbot.stop()
-    LOGGER("DeadlineTech").info("Stopping DeadlineTech Music Bot...")
+    LOGGER("DeadlineTech").info("🛑 Stopping DeadlineTech Music Bot...")
 
 
 if __name__ == "__main__":
