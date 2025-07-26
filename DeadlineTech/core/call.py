@@ -320,15 +320,15 @@ class Call(PyTgCalls):
             )
         else:
             stream = (
-                AudioPiped(
+                AudioVideoPiped(
                     link,
-                    audio_parameters=HighQualityAudio())
+                    audio_parameters=HighQualityAudio(),
+                    video_parameters=MediumQualityVideo())
             )
         try:
             await assistant.join_group_call(
                 chat_id,
                 stream,
-                stream_type=StreamType().pulse_stream,
             )
         except NoActiveGroupCall:
             raise AssistantErr(_["call_8"])
