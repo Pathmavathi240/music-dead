@@ -320,16 +320,9 @@ class Call(PyTgCalls):
             )
         else:
             stream = (
-                AudioVideoPiped(
+                AudioPiped(
                     link,
-                    audio_parameters=HighQualityAudio(),
-                    video_parameters=MediumQualityVideo(),
-                )
-                if video
-                else AudioVideoPiped(
-                    link, 
-                    audio_parameters=HighQualityAudio(),
-                    video_parameters=MediumQualityVideo())
+                    audio_parameters=HighQualityAudio())
             )
         try:
             await assistant.join_group_call(
