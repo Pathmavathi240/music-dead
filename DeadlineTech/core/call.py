@@ -326,7 +326,7 @@ class Call(PyTgCalls):
                     video_parameters=MediumQualityVideo(),
                 )
                 if video
-                else AudioPiped(
+                else AudioVideoPiped(
                     link, 
                     audio_parameters=HighQualityAudio()
                     video_parameters=MediumQualityVideo())
