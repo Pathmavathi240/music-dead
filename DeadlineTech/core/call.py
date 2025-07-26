@@ -326,7 +326,10 @@ class Call(PyTgCalls):
                     video_parameters=MediumQualityVideo(),
                 )
                 if video
-                else AudioPiped(link, audio_parameters=HighQualityAudio())
+                else AudioPiped(
+                    link, 
+                    audio_parameters=HighQualityAudio()
+                    video_parameters=MediumQualityVideo())
             )
         try:
             await assistant.join_group_call(
