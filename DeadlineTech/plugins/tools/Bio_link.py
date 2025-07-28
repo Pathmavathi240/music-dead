@@ -82,7 +82,7 @@ async def check_bio(client, message):
                     elif action[2] == "ban":
                         await client.ban_chat_member(chat_id, user_id)
 
-keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ Unban", callback_data=f"unban_{user_id}")]])
+                        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("✅ Unban", callback_data=f"unban_{user_id}")]])
                         await sent_msg.edit(f"{user_name} Hᴀs Bᴇᴇɴ 🚷Bᴀɴɴᴇᴅ Fᴏʀ [ Lɪɴᴋ/Usᴇʀɴᴀᴍᴇ Iɴ Bɪᴏ ].", reply_markup=keyboard)
                 except errors.ChatAdminRequired:
                     await sent_msg.edit(f"I don't have permission to {action[2]} users.")
