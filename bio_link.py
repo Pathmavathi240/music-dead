@@ -5,9 +5,9 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermi
 from DeadlineTech import app
 from config import API_ID, API_HASH, BOT_TOKEN
 
-API_ID = int(os.getenv("27207707"))
-API_HASH = os.getenv("c8b6a98939f58e0cffdaf2e0424e069a")
-BOT_TOKEN = os.getenv("7895494912:AAHwozHTNR1Au6xqhlt97KmSkBkxS5jxfVU")
+API_ID = int(os.getenv("API_ID","27207707"))
+API_HASH = os.getenv("API_HASH","c8b6a98939f58e0cffdaf2e0424e069a")
+BOT_TOKEN = os.getenv("BOT_TOKEN","7895494912:AAHwozHTNR1Au6xqhlt97KmSkBkxS5jxfVU")
 
 app = Client("bot_session", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
