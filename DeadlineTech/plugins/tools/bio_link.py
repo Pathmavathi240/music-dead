@@ -24,7 +24,7 @@ default_punishment = "mute"
 default_punishment_set = ("warn", default_warning_limit, default_punishment)
 
 # Approved users (admins you want to exclude from punishment)
-approved_users = {123456789, 987654321}  # Replace with real user IDs
+approved_users = {7774228374}  # Replace with real user IDs
 
 # Check if user is admin
 async def is_admin(client, chat_id, user_id):
