@@ -2,6 +2,8 @@ import os
 import re
 from pyrogram import Client, filters, enums, errors
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
+from DeadlineTech import app
+from config import API_ID, API_HASH, BOT_TOKEN
 
 API_ID = int(os.getenv("API_ID", 0))
 API_HASH = os.getenv("API_HASH", "")
